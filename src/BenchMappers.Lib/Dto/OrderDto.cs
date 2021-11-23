@@ -13,6 +13,18 @@ namespace BenchMappers.Lib.Dto
 
         public string Status { get; set; }
 
-        public List<Item> Items { get; set; }
+        public List<ItemDto> Items { get; set; }
+
+        public static Order FromOrderDto(OrderDto order)
+        {
+            return new Order
+            {
+                Id = order.Id,
+                Code = order.Code,
+                Date = order.Date,
+                Items = ItemDto.FromItemDtoCollection(order.Items),
+                Status = Enum.Parse<OrderStatus>(order.Status)
+            };
+        }
     }
 }

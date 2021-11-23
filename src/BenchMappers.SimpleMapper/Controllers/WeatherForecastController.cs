@@ -1,39 +1,28 @@
 ﻿namespace BenchMappers.SimpleMapper.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+    using BenchMappers.Lib.Dto;
 
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        [ApiController]
+        [Route("api/mapping")]
+        public class OrderController : ControllerBase
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            public OrderController()
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            }
+
+            [HttpPost]
+            public ActionResult PostAsync([FromBody] OrderDto dto)
+            {
+                var data = OrderDto.FromOrderDto(dto);
+                return Ok(data);
+            }
         }
     }
 }

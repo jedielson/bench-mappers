@@ -1,5 +1,7 @@
 namespace BenchMappers.WithAutoMapper
 {
+    using BenchMappers.WithAutoMapper.Mappers;
+
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -25,6 +27,8 @@ namespace BenchMappers.WithAutoMapper
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BenchMappers.WithAutoMapper", Version = "v1" });
             });
+
+            services.AddAutoMapper(typeof(LocalProfile));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
