@@ -1,12 +1,12 @@
 ﻿namespace BenchMappers.Benchmark
 {
-    using System;
+    using BenchmarkDotNet.Running;
 
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BenchmarkRunner.Run(typeof(Program).Assembly);
         }
     }
 }
