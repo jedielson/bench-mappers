@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
-namespace BenchMappers.SimpleMapper.Controllers
+﻿namespace BenchMappers.SimpleMapper.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

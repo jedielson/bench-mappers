@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace BenchMappers.Benchmark
+﻿namespace BenchMappers.Benchmark
 {
+    using System;
+
     class Program
     {
         static void Main(string[] args)
